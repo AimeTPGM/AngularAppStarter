@@ -1,6 +1,8 @@
-* Angular App Starter
+# Angular App Starter
 
-a simple web app server that already setup work path for you!
+a simple web app server that already setup work path for you! 
+
+just open terminal and use the following commands:
 
 ``` 
 $git clone https://github.com/AimeTPGM/AngularAppStarter.git
