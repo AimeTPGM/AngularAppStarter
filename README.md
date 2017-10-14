@@ -9,13 +9,13 @@ $git clone https://github.com/AimeTPGM/AngularAppStarter.git
 
 $cd ~/path/to/directory/AngularAppStarter
 
-$node app.js
+$gulp sass:watch
 ``` 
+
+Then the app will be running on ```localhost:3000``` with live reload!
 
 That's it! Enjoy!
 
-# Sass Usage
+# Usage
 
-1. run the ```npm run watch-css``` for watching scss change log 
-2. edit scss/main.scss
-3. run ```npm run build-css``` for compiling ```scss/main.scss``` to ```public/assets/css/main.css```
+folder ```sass``` is currently being watched by gulp with live reload and it will compile sass to css automatically to any change made in ```sass``` folder
