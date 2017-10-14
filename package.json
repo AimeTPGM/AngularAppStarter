@@ -5,16 +5,21 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "./bin/build-css",
+    "build-css": "node-sass --include-path sass sass/main.sass public/assets/css/main.css",
     "watch-css": "./bin/watch-css"
   },
   "author": "AimeTPGM",
   "license": "ISC",
   "dependencies": {
     "angular-route": "^1.6.6",
+    "browser-sync": "^2.18.13",
     "bulma": "^0.6.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^3.1.0",
     "nodejs": "0.0.0"
   },
   "devDependencies": {
