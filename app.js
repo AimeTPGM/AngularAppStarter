@@ -9,7 +9,7 @@ app.set('views', __dirname+'/public/views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/*', function (req, res) {
-	res.sendFile(__dirname+'/public/common.html');
+	res.sendFile(__dirname+'/public/index.html');
 });
 
 var server = app.listen(3000, function () {

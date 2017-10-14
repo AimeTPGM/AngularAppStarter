@@ -1,4 +1,8 @@
 'use strict'
+
+/**
+* More info: https://css-tricks.com/gulp-for-beginners/
+**/
  
 const gulp = require('gulp')
 const sass = require('gulp-sass')
@@ -8,9 +12,8 @@ const browserSync = require('browser-sync').create()
 
 gulp.task('browserSync', function() {
   browserSync.init({
-    server : {
-        baseDir : 'public'
-    },
+    proxy: 'http://localhost:3000'
+    ,
   })
 })
 
@@ -23,7 +26,10 @@ gulp.task('sass', function () {
     }))
 })
  
-gulp.task('sass:watch', ['browserSync', 'sass'], function () {
+gulp.task('watch', ['browserSync', 'sass'], function () {
   gulp.watch('./sass/**/*.sass', ['sass'])
+  gulp.watch('./public/assets/js/**/*.js', browserSync.reload)
+  gulp.watch('./public/*.html', browserSync.reload)
+  gulp.watch('./public/views/*.html', browserSync.reload)
 })
 
