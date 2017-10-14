@@ -6,16 +6,10 @@ just open terminal and use the following commands:
 
 ``` 
 $git clone https://github.com/AimeTPGM/AngularAppStarter.git
-
 $cd ~/path/to/directory/AngularAppStarter
-
-$gulp sass:watch
+$node app.js & gulp watch
 ``` 
 
-Then the app will be running on ```localhost:3000``` with live reload!
+Then the live-reloadable app will be running on ```localhost:3001``` 
 
 That's it! Enjoy!
-
-# Usage
-
-folder ```sass``` is currently being watched by gulp with live reload and it will compile sass to css automatically to any change made in ```sass``` folder
