@@ -57,6 +57,34 @@ Project Structure
 3. use ```src``` folder to modify your website
 4. all changes in ```src``` will be automatically compiled and copied to ```public``` folder 
 
+## Docker
+
+**Please Download and Install [Docker](https://www.docker.com) in your machine First**
+
+you can use 
+
+```
+docker run -p 3001:3001 -d aimetpgm/angular-app-starter:latest --name angular-app-starter
+```
+
+to see the docker example running at ```yourDockerIP:3001```
+
+1. build your docker image by
+
+```
+docker build -t <your docker username>/angular-app-starter .
+```
+
+or use [Docker Cloud](https://cloud.docker.com) linked with your angular app starter repository in your GitHub
+
+2.  after finish building docker image, run the image by 
+
+```
+docker run -p 3001:3001 -d <your docker username>/angular-app-starter:latest --name angular-app-starter
+```
+
+3. go to ```yourDockerIP:3001``` that's it!
+
 # Note
 
 if you face the following error
