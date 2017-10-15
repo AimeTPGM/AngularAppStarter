@@ -1,0 +1,18 @@
+doctype html
+html(ng-app='app')
+head
+    link(rel='stylesheet', href='/assets/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/assets/css/bulma.css')
+    link(rel='stylesheet', href='/assets/css/main.css')
+  body
+    //Angular
+    script(src='/assets/js/angular.min.js')
+    script(src='/assets/js/angular-route.min.js')
+    
+    // App Modules
+    script(src='/assets/js/app.js')
+    script(src='/assets/js/controllers/index.js')
+    script(src='/assets/js/controllers/second.js')
+    // graph
+    div(ng-view='')
+
