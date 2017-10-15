@@ -7,7 +7,7 @@ just open terminal and use the following commands:
 ``` 
 $git clone https://github.com/AimeTPGM/AngularAppStarter.git
 $cd ~/path/to/directory/AngularAppStarter
-$node app.js & gulp watch
+$npm start
 ``` 
 
 Then the live-reloadable app will be running on ```localhost:3001``` 
