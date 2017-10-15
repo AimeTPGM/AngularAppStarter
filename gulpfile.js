@@ -19,7 +19,7 @@ gulp.task('browserSync', function() {
 })
 
 gulp.task('sass', function () {
-  return gulp.src('./src/sass/**/*.sass')
+  return gulp.src('./src/assets/sass/**/*.sass')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/assets/css'))
     .pipe(browserSync.reload({
@@ -28,8 +28,16 @@ gulp.task('sass', function () {
 })
 
 gulp.task('js', function(){
-  return gulp.src('./src/js/**/*.js')
+  return gulp.src('./src/assets/js/**/*.js')
   .pipe(gulp.dest('./public/assets/js'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+})
+
+gulp.task('font', function(){
+  return gulp.src('./src/assets/fonts/**/*.*')
+  .pipe(gulp.dest('./public/assets/fonts'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -38,7 +46,7 @@ gulp.task('js', function(){
 gulp.task('index', function(){
   return gulp.src('./src/*.jade')
   .pipe(jade())
-  .pipe(gulp.dest('public/'))
+  .pipe(gulp.dest('public'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -53,10 +61,11 @@ gulp.task('jade', function(){
   }))
 })
  
-gulp.task('watch', ['browserSync', 'sass'], function () {
-  gulp.watch('./src/sass/**/*.sass', ['sass'])
-  gulp.watch('./src/js/**/*.js', ['js'])
+gulp.task('watch', ['browserSync', 'index', 'jade', 'font', 'sass', 'js'], function () {
+  gulp.watch('./src/assets/sass/**/*.sass', ['sass'])
+  gulp.watch('./src/assets/js/**/*.js', ['js'])
   gulp.watch('./src/*.jade', ['index'])
   gulp.watch('./src/views/**/*.jade', ['jade'])
+  gulp.watch('./src/assets/fonts/**/*.*', ['font'])
 })
 
