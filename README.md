@@ -27,6 +27,7 @@ Project Structure
 |- bin
 |-- build-css
 |-- watch-css
+|-- start
 |- gulpfile.js
 |- node_modules
 |- package-lock.json
