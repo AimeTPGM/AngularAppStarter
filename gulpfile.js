@@ -35,6 +35,14 @@ gulp.task('js', function(){
   }))
 })
 
+gulp.task('controller', function(){
+  return gulp.src('./src/assets/js/controllers/**/*.js')
+  .pipe(gulp.dest('./public/assets/js/controllers'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+})
+
 gulp.task('font', function(){
   return gulp.src('./src/assets/fonts/**/*.*')
   .pipe(gulp.dest('./public/assets/fonts'))
@@ -61,9 +69,10 @@ gulp.task('jade', function(){
   }))
 })
  
-gulp.task('watch', ['browserSync', 'index', 'jade', 'font', 'sass', 'js'], function () {
+gulp.task('watch', ['browserSync', 'index', 'jade', 'font', 'sass', 'js', 'controller'], function () {
   gulp.watch('./src/assets/sass/**/*.sass', ['sass'])
   gulp.watch('./src/assets/js/**/*.js', ['js'])
+  gulp.watch('./src/assets/fonts/controllers/**/*.*', ['controller'])
   gulp.watch('./src/*.jade', ['index'])
   gulp.watch('./src/views/**/*.jade', ['jade'])
   gulp.watch('./src/assets/fonts/**/*.*', ['font'])
