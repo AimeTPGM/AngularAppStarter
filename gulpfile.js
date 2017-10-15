@@ -27,6 +27,14 @@ gulp.task('sass', function () {
     }))
 })
 
+gulp.task('js', function(){
+  return gulp.src('./src/js/**/*.js')
+  .pipe(gulp.dest('./public/assets/js'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+})
+
 gulp.task('index', function(){
   return gulp.src('./src/*.jade')
   .pipe(jade())
@@ -47,7 +55,7 @@ gulp.task('jade', function(){
  
 gulp.task('watch', ['browserSync', 'sass'], function () {
   gulp.watch('./src/sass/**/*.sass', ['sass'])
-  gulp.watch('./public/assets/js/**/*.js', browserSync.reload)
+  gulp.watch('./src/js/**/*.js', ['js'])
   gulp.watch('./src/*.jade', ['index'])
   gulp.watch('./src/views/**/*.jade', ['jade'])
 })
