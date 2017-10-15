@@ -16,7 +16,46 @@ That's it! Enjoy!
 
 # Usage
 
-coming soon
+This project is using [AngularJS](https://angularjs.org/), [JADE](http://jade-lang.com/) and [SASS](http://sass-lang.com/)
+
+## Make Your Own Website
+
+Project Structure
+
+```
+|- app.js
+|- bin
+|-- build-css
+|-- watch-css
+|- gulpfile.js
+|- node_modules
+|- package-lock.json
+|- package.json
+|- src
+|-- index.jade
+|-- assets
+|--- fonts
+|--- js
+|--- sass
+|- public
+|-- index.html
+|-- assets
+|--- fonts
+|--- js
+|--- css
+```
+
+- ```src/index.jade``` is for adding css and js located in ```src/assets/``` folder
+- ```src/views/``` contains view files in .jade type.
+- ```src/assets``` folder contains css, js, and fonts for using in the web.
+- ```src/assets/js/``` contains js files
+- ```src/assets/sass/``` contains sass files.
+- ```src/assets/fonts/``` contains fonts
+
+1. open terminal and run the commands above
+2. live reload app will be running on ```localhost:3001```
+3. use ```src``` folder to modify your website
+4. all changes in ```src``` will be automatically compiled and copied to ```public``` folder 
 
 # Note
 
