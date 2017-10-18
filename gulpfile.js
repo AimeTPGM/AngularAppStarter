@@ -18,63 +18,56 @@ gulp.task('browserSync', function() {
   })
 })
 
+gulp.task('reloadHTML', ['index', 'jade'], function(){
+  browserSync.reload()
+})
+
+gulp.task('reloadSASS', ['font', 'sass'], function(){
+  browserSync.reload()
+})
+
+gulp.task('reloadJS', ['js', 'controller'], function(){
+  browserSync.reload()
+})
+
 gulp.task('sass', function () {
   return gulp.src('./src/assets/sass/**/*.sass')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/assets/css'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
 })
 
 gulp.task('js', function(){
   return gulp.src('./src/assets/js/**/*.js')
   .pipe(gulp.dest('./public/assets/js'))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
 })
 
 gulp.task('controller', function(){
   return gulp.src('./src/assets/js/controllers/**/*.js')
   .pipe(gulp.dest('./public/assets/js/controllers'))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
 })
 
 gulp.task('font', function(){
   return gulp.src('./src/assets/fonts/**/*.*')
   .pipe(gulp.dest('./public/assets/fonts'))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
 })
 
 gulp.task('index', function(){
   return gulp.src('./src/*.jade')
   .pipe(jade())
   .pipe(gulp.dest('public'))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
 })
 
 gulp.task('jade', function(){
   return gulp.src('./src/views/*.jade')
   .pipe(jade())
   .pipe(gulp.dest('public/views'))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
 })
  
 gulp.task('watch', ['browserSync', 'index', 'jade', 'font', 'sass', 'js', 'controller'], function () {
-  gulp.watch('./src/assets/sass/**/*.sass', ['sass'])
-  gulp.watch('./src/assets/js/**/*.js', ['js'])
-  gulp.watch('./src/assets/fonts/controllers/**/*.*', ['controller'])
-  gulp.watch('./src/*.jade', ['index'])
-  gulp.watch('./src/views/**/*.jade', ['jade'])
-  gulp.watch('./src/assets/fonts/**/*.*', ['font'])
+  gulp.watch('./src/assets/sass/**/*.sass', ['reloadSASS'])
+  gulp.watch('./src/assets/fonts/**/*.*', ['reloadSASS'])
+  gulp.watch('./src/assets/js/**/*.js', ['reloadJS'])
+  gulp.watch('./src/assets/fonts/controllers/**/*.*', ['reloadJS'])
+  gulp.watch('./src/*.jade', ['reloadHTML'])
+  gulp.watch('./src/views/**/*.jade', ['reloadHTML'])
 })
-
